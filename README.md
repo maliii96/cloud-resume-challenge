@@ -1,4 +1,4 @@
-# Cloud Resume Challenge - AOL 90s Theme
+# Cloud Resume Challenge - AOL 90s Themes
 
 A serverless cloud resume built on AWS, styled as a fully interactive Windows 95 + AOL desktop experience. Built as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/).
 
