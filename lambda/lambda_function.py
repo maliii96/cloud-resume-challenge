@@ -1,7 +1,8 @@
 import json
+import os
 import boto3
 
-dynamodb = boto3.resource("dynamodb")
+dynamodb = boto3.resource("dynamodb", region_name=os.environ.get("AWS_REGION", "us-east-1"))
 table = dynamodb.Table("cloud-resume-visitors")
 
 
