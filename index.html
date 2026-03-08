@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malik Stevenson - Resume | AOL Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=MS+Sans+Serif&display=swap" rel="stylesheet">
+</head>
+<body class="scanlines">
+
+  <!-- ========== DIAL-UP LOADING SCREEN ========== -->
+  <div id="dialup-screen">
+    <div class="dialup-window">
+      <div class="win95-titlebar">
+        <span class="titlebar-text">📡 Connecting To America Online...</span>
+        <div class="titlebar-buttons">
+          <button class="tb-btn">_</button>
+          <button class="tb-btn">□</button>
+          <button class="tb-btn">×</button>
+        </div>
+      </div>
+      <div class="dialup-body">
+        <div class="aol-logo-area">
+          <div class="aol-triangle">
+            <span class="aol-text-america">A M E R I C A</span>
+            <span class="aol-text-online">Online</span>
+          </div>
+        </div>
+        <div class="connection-figures">
+          <div class="figure-box active" id="fig1">
+            <div class="stick-figure">🏃</div>
+          </div>
+          <div class="figure-box" id="fig2">
+            <div class="stick-figure">📡</div>
+          </div>
+          <div class="figure-box" id="fig3">
+            <div class="stick-figure">🎉</div>
+          </div>
+        </div>
+        <div class="connection-status" id="connection-status">Dialing... 📞</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <button class="cancel-btn" id="skip-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN AOL DESKTOP ========== -->
+  <div id="aol-desktop" class="hidden">
+
+    <!-- WIN95 TASKBAR -->
+    <div class="taskbar">
+      <button class="start-btn" id="start-btn">
+        <span class="start-icon">🪟</span> Start
+      </button>
+      <div class="taskbar-divider"></div>
+      <div class="taskbar-items" id="taskbar-items"></div>
+      <div class="taskbar-right">
+        <div class="systray-icon" title="Volume">🔊</div>
+        <div class="systray-icon" title="Network">🌐</div>
+        <div class="taskbar-clock" id="taskbar-clock">12:00 AM</div>
+      </div>
+    </div>
+
+    <!-- START MENU -->
+    <div id="start-menu" class="start-menu hidden">
+      <div class="start-menu-sidebar">
+        <span class="sidebar-text">Malik<br>Stevenson</span>
+      </div>
+      <div class="start-menu-items">
+        <div class="start-menu-item" data-window="about-window">📄 About Me</div>
+        <div class="start-menu-item" data-window="experience-window">💼 Experience</div>
+        <div class="start-menu-item" data-window="education-window">🎓 Education</div>
+        <div class="start-menu-item" data-window="skills-window">🛠️ Skills</div>
+        <div class="start-menu-item" data-window="mail-window">📬 You've Got Mail</div>
+        <div class="start-menu-item" data-window="projects-window">🗂️ Projects</div>
+        <div class="start-menu-item" data-window="resume-window">📁 Full Resume</div>
+        <div class="start-menu-divider"></div>
+        <div class="start-menu-item" id="shutdown-btn">🔌 Shut Down...</div>
+      </div>
+    </div>
+
+    <!-- AOL TOOLBAR -->
+    <div class="aol-toolbar">
+      <div class="aol-toolbar-top">
+        <div class="aol-logo-small">
+          <span class="aol-mini-text">AOL</span>
+        </div>
+        <div class="toolbar-buttons">
+          <button class="toolbar-btn" data-window="about-window">
+            <span class="tb-icon">📄</span>
+            <span class="tb-label">Read</span>
+          </button>
+          <button class="toolbar-btn" data-window="mail-window">
+            <span class="tb-icon">✉️</span>
+            <span class="tb-label">Write</span>
+          </button>
+          <button class="toolbar-btn" data-window="experience-window">
+            <span class="tb-icon">💼</span>
+            <span class="tb-label">My Files</span>
+          </button>
+          <button class="toolbar-btn" data-window="skills-window">
+            <span class="tb-icon">🛠️</span>
+            <span class="tb-label">Favorites</span>
+          </button>
+          <button class="toolbar-btn" data-window="education-window">
+            <span class="tb-icon">🌐</span>
+            <span class="tb-label">Internet</span>
+          </button>
+          <button class="toolbar-btn" id="buddy-toggle">
+            <span class="tb-icon">👥</span>
+            <span class="tb-label">People</span>
+          </button>
+        </div>
+      </div>
+      <div class="aol-toolbar-address">
+        <span class="address-label">Keyword:</span>
+        <input type="text" class="address-input" value="Malik Stevenson // IT & Security Support" readonly>
+        <button class="go-btn">Go</button>
+      </div>
+      <div class="welcome-banner">
+        <span>Welcome, Visitor #<strong id="visitor-count-banner">0000000</strong>! &nbsp; Last Login: Never &nbsp; | &nbsp; You have <strong>1 unread resume</strong> &nbsp; | &nbsp; <blink>NEW!</blink></span>
+      </div>
+      <div class="aol-status-bar">
+        <span class="status-typing" id="status-typing"></span>
+        <span class="status-right">👤 Visitors: <span id="visitor-count-status" style="font-weight:bold; color:#003399;">0000000</span> &nbsp;|&nbsp; 56K Connection | 🔒 Secure</span>
+      </div>
+    </div>
+
+    <!-- DESKTOP AREA -->
+    <div class="desktop-area" id="desktop-area">
+
+      <!-- Desktop Icons -->
+      <div class="desktop-icons">
+        <div class="desktop-icon" data-window="about-window">
+          <div class="icon-img">📄</div>
+          <span class="icon-label">About Me.txt</span>
+        </div>
+        <div class="desktop-icon" data-window="experience-window">
+          <div class="icon-img">💼</div>
+          <span class="icon-label">Experience.exe</span>
+        </div>
+        <div class="desktop-icon" data-window="education-window">
+          <div class="icon-img">🎓</div>
+          <span class="icon-label">Education.doc</span>
+        </div>
+        <div class="desktop-icon" data-window="skills-window">
+          <div class="icon-img">🛠️</div>
+          <span class="icon-label">Skills.dll</span>
+        </div>
+        <div class="desktop-icon" data-window="mail-window">
+          <div class="icon-img">📬</div>
+          <span class="icon-label">Contact.msg</span>
+        </div>
+        <div class="desktop-icon" data-window="projects-window">
+          <div class="icon-img">🗂️</div>
+          <span class="icon-label">Projects.zip</span>
+        </div>
+        <div class="desktop-icon" data-window="resume-window">
+          <div class="icon-img">📁</div>
+          <span class="icon-label">Resume</span>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation (hidden on desktop, shown on mobile via CSS) -->
+      <div class="visitor-bar" id="visitor-bar" style="display:none; background:#000; color:#00ff00; text-align:center; padding:8px; font-family:'Courier New',monospace; font-size:14px; letter-spacing:1px;">
+        👤 VISITORS: <span id="visitor-count-bar">0000000</span>
+      </div>
+      <div class="mobile-nav" id="mobile-nav" style="display:none;">
+        <button class="mobile-nav-btn" data-window="about-window">
+          <span class="nav-icon">📄</span>
+          <span class="nav-label">About Me</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="experience-window">
+          <span class="nav-icon">💼</span>
+          <span class="nav-label">Experience</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="education-window">
+          <span class="nav-icon">🎓</span>
+          <span class="nav-label">Education</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="skills-window">
+          <span class="nav-icon">🛠️</span>
+          <span class="nav-label">Skills</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="mail-window">
+          <span class="nav-icon">📬</span>
+          <span class="nav-label">Contact</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="projects-window">
+          <span class="nav-icon">🗂️</span>
+          <span class="nav-label">Projects</span>
+        </button>
+        <button class="mobile-nav-btn" data-window="resume-window">
+          <span class="nav-icon">📁</span>
+          <span class="nav-label">Resume</span>
+        </button>
+      </div>
+
+      <!-- ===== ABOUT ME WINDOW ===== -->
+      <div class="win95-window" id="about-window" style="top:60px;left:80px;width:520px;">
+        <div class="win95-titlebar" data-window="about-window">
+          <span class="titlebar-text">📄 About Me - Malik Stevenson</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="about-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="about-window">□</button>
+            <button class="tb-btn close-btn" data-window="about-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+        </div>
+        <div class="win95-body">
+          <div class="welcome-section">
+            <h1 class="retro-title">👋 Welcome to Malik's Profile</h1>
+            <div class="aol-card">
+              <div class="profile-header">
+                <div class="profile-avatar">MS</div>
+                <div class="profile-info">
+                  <h2>Malik Stevenson</h2>
+                  <p class="subtitle">Tier 2–3 IT & Security Support</p>
+                  <p class="subtitle-small">FedRAMP & Commercial Environments</p>
+                </div>
+              </div>
+              <div class="profile-summary">
+                <p>I provide Tier 2–3 IT and Security support across both FedRAMP-compliant and commercial environments, operating where access, stability, and compliance intersect. I specialize in Identity & Access Management, endpoint administration, and secure user lifecycle operations in regulated systems where uptime and policy alignment matter.</p>
+                <p style="margin-top:8px;"><strong>Core Focus:</strong></p>
+                <ul class="retro-list" style="margin-top:4px;">
+                  <li>Okta integrations, group/application assignments, and authentication troubleshooting</li>
+                  <li>User lifecycle management, onboarding, and secure offboarding</li>
+                  <li>Jamf endpoint management across distributed environments</li>
+                  <li>Google Workspace and Microsoft 365 administration</li>
+                  <li>Access control enforcement aligned with FedRAMP requirements</li>
+                  <li>Linux and Windows environment support</li>
+                  <li>Ticket workflow optimization through Remedy and Jira</li>
+                </ul>
+                <p style="margin-top:8px;"><strong>Environment Scope:</strong></p>
+                <ul class="retro-list" style="margin-top:4px;">
+                  <li>Supported 600+ endpoints across commercial and regulated environments</li>
+                  <li>Maintained ~95% first-call resolution rate</li>
+                  <li>Improved operational consistency through structured documentation and repeatable processes</li>
+                  <li>Streamlined ticket workflows and reduced repeat access-related incidents</li>
+                </ul>
+                <p style="margin-top:8px;">I operate in environments where security, reliability, and usability must coexist. I focus on root-cause resolution, process clarity, and scalable support operations.</p>
+              </div>
+              <div class="marquee-container">
+                <marquee behavior="scroll" direction="left" scrollamount="3">
+                  ⭐ IT & Security Support Specialist ⭐ FedRAMP Experienced ⭐ IAM & Endpoint Administration ⭐ B.S. Information Technology ⭐
+                </marquee>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== EXPERIENCE WINDOW ===== -->
+      <div class="win95-window hidden" id="experience-window" style="top:100px;left:160px;width:560px;">
+        <div class="win95-titlebar" data-window="experience-window">
+          <span class="titlebar-text">💼 Work Experience - WordPad</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="experience-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="experience-window">□</button>
+            <button class="tb-btn close-btn" data-window="experience-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span>
+        </div>
+        <div class="win95-body">
+          <div class="experience-entry">
+            <div class="job-header">
+              <h3>🔐 IT & Security Support Specialist</h3>
+              <span class="job-org">Armis</span>
+              <span class="job-date">Feb 2025 – Present</span>
+            </div>
+            <ul class="retro-list">
+              <li>Provide Tier 1–2 IT support, troubleshooting hardware, software, and network issues to minimize end-user downtime</li>
+              <li>Manage and resolve service requests through ServiceDesk, prioritizing incidents by urgency and impact</li>
+              <li>Administer Microsoft 365, Okta, and Active Directory — provisioning accounts, managing access control, and ensuring security compliance</li>
+              <li>Support FedRAMP-compliant IT operations, ensuring adherence to federal security standards and best practices</li>
+              <li>Document recurring issues and solutions in a knowledge base, improving resolution efficiency</li>
+              <li>Collaborate with cybersecurity teams to enforce security policies, monitor systems, and mitigate potential threats</li>
+            </ul>
+          </div>
+          <hr class="retro-hr">
+          <div class="experience-entry">
+            <div class="job-header">
+              <h3>🎖️ IT System Administrator</h3>
+              <span class="job-org">United States Army</span>
+              <span class="job-date">Nov 2021 – Present</span>
+            </div>
+            <ul class="retro-list">
+              <li>Delivered technical support and system administration across a large-scale, high-demand environment</li>
+              <li>Reconfigured and upgraded 100+ systems, streamlining imaging processes and reducing deployment time by 20%</li>
+              <li>Managed and troubleshot Microsoft 365 environments (Exchange, Teams, SharePoint), maintaining 99.9% uptime</li>
+              <li>Diagnosed and resolved hardware/software issues across 500+ service requests, maintaining a 90% satisfaction rate</li>
+              <li>Maintained Windows Server environments and Active Directory, ensuring secure access control and regular backups</li>
+              <li>Created technical documentation and SOPs to drive operational consistency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== EDUCATION WINDOW ===== -->
+      <div class="win95-window hidden" id="education-window" style="top:80px;left:240px;width:480px;">
+        <div class="win95-titlebar" data-window="education-window">
+          <span class="titlebar-text">🎓 Education - Notepad</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="education-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="education-window">□</button>
+            <button class="tb-btn close-btn" data-window="education-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>File</span><span>Edit</span><span>Search</span><span>Help</span>
+        </div>
+        <div class="win95-body notepad-body">
+          <pre class="notepad-text">
+╔══════════════════════════════════════╗
+║         EDUCATION & TRAINING         ║
+╠══════════════════════════════════════╣
+║                                      ║
+║  🎓 B.S. Information Technology      ║
+║     Western Governors University     ║
+║     Status: Completed ✅              ║
+║                                      ║
+║  Relevant Coursework:                ║
+║  ├── Operating Systems               ║
+║  ├── Network Security                ║
+║  └── Cloud Computing                 ║
+║                                      ║
+╚══════════════════════════════════════╝
+
+> Degree unlocked! 🎉
+> Knowledge base loaded... ████████ 100%
+          </pre>
+        </div>
+      </div>
+
+      <!-- ===== SKILLS WINDOW ===== -->
+      <div class="win95-window hidden" id="skills-window" style="top:70px;left:200px;width:500px;">
+        <div class="win95-titlebar" data-window="skills-window">
+          <span class="titlebar-text">🛠️ Skills - System Properties</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="skills-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="skills-window">□</button>
+            <button class="tb-btn close-btn" data-window="skills-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>General</span><span>Performance</span><span>Device Manager</span>
+        </div>
+        <div class="win95-body">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>🔑 Identity & Access Management</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Okta</span>
+                <span class="skill-tag">Active Directory</span>
+                <span class="skill-tag">User Lifecycle</span>
+                <span class="skill-tag">Access Control</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🖥️ Endpoint & OS Administration</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Jamf</span>
+                <span class="skill-tag">Windows</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">SCCM</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>☁️ Cloud & Productivity</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Microsoft 365</span>
+                <span class="skill-tag">Google Workspace</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Exchange</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🔐 Security & Compliance</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">FedRAMP</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Security Policies</span>
+                <span class="skill-tag">Risk Assessment</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>⌨️ Tools & Ticketing</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">ServiceDesk</span>
+                <span class="skill-tag">Jira</span>
+                <span class="skill-tag">Remedy</span>
+                <span class="skill-tag">Bash</span>
+                <span class="skill-tag">PowerShell</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <span>Okta/IAM</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>Microsoft 365</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>Active Directory</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>Jamf/Endpoint</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>FedRAMP/Security</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MAIL / CONTACT WINDOW ===== -->
+      <div class="win95-window hidden" id="mail-window" style="top:90px;left:120px;width:500px;">
+        <div class="win95-titlebar" data-window="mail-window">
+          <span class="titlebar-text">📬 You've Got Mail! - Contact Malik</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="mail-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="mail-window">□</button>
+            <button class="tb-btn close-btn" data-window="mail-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>Mail</span><span>Compose</span><span>Address Book</span>
+        </div>
+        <div class="win95-body">
+          <div class="mail-header">
+            <div class="youve-got-mail">
+              <span class="ygm-icon">📨</span>
+              <h2>You've Got Mail!</h2>
+            </div>
+          </div>
+          <div class="mail-compose">
+            <div class="mail-field">
+              <label>To:</label>
+              <span>malikmstevenson@gmail.com</span>
+            </div>
+            <div class="mail-field">
+              <label>Screen Name:</label>
+              <span>MalikStevenson96</span>
+            </div>
+            <hr class="retro-hr">
+            <div class="contact-links">
+              <a href="mailto:malikmstevenson@gmail.com" class="contact-btn">
+                <span class="contact-icon">📧</span>
+                <span>Send Email</span>
+              </a>
+              <a href="https://github.com/malii96" target="_blank" class="contact-btn">
+                <span class="contact-icon">💾</span>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/Malik-Stevenson" target="_blank" class="contact-btn">
+                <span class="contact-icon">🤝</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          <div class="visitor-counter">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1">
+            <span class="counter-text">📊 You are visitor #<span id="visitor-count">000,482</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PROJECTS WINDOW ===== -->
+      <div class="win95-window hidden" id="projects-window" style="top:110px;left:180px;width:520px;">
+        <div class="win95-titlebar" data-window="projects-window">
+          <span class="titlebar-text">🗂️ Projects - File Manager</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="projects-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="projects-window">□</button>
+            <button class="tb-btn close-btn" data-window="projects-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>File</span><span>Disk</span><span>Tree</span><span>View</span>
+        </div>
+        <div class="win95-body">
+          <div class="under-construction">
+              <span>🚧 UNDER CONSTRUCTION 🚧 More Projects Coming Soon!</span>
+            </div>
+            <div class="file-manager" style="margin-top:8px;">
+            <div class="file-path">C:\Users\Malik\Projects\</div>
+            <div class="file-list">
+              <div class="file-item">
+                <span class="file-icon">🌐</span>
+                <div class="file-info">
+                  <span class="file-name">Cloud Resume Challenge</span>
+                  <span class="file-desc">AWS S3, CloudFront, Route 53, Lambda, DynamoDB</span>
+                  <span class="file-meta">Modified: 2026 | Size: Production-Ready</span>
+                </div>
+              </div>
+              <div class="file-item">
+                <span class="file-icon">🎯</span>
+                <div class="file-info">
+                  <span class="file-name">VetSITREP - Veteran Transition Platform</span>
+                  <span class="file-desc">Next.js, Supabase, Stripe, AI-Powered Career Tools</span>
+                  <span class="file-meta">Modified: 2026 | Size: Full-Stack App</span>
+                </div>
+              </div>
+              <div class="file-item">
+                <span class="file-icon">🤖</span>
+                <div class="file-info">
+                  <span class="file-name">Defense Tax AI Chatbot</span>
+                  <span class="file-desc">n8n, Claude API, Airtable, Typebot</span>
+                  <span class="file-meta">Modified: 2026 | Size: AI Agent</span>
+                </div>
+              </div>
+              <div class="file-item">
+                <span class="file-icon">💾</span>
+                <div class="file-info">
+                  <span class="file-name">GitHub Portfolio</span>
+                  <span class="file-desc"><a href="https://github.com/malii96" target="_blank">github.com/malii96</a></span>
+                  <span class="file-meta">Status: Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FULL RESUME WINDOW ===== -->
+      <div class="win95-window hidden" id="resume-window" style="top:30px;left:60px;width:620px;max-height:80vh;">
+        <div class="win95-titlebar" data-window="resume-window">
+          <span class="titlebar-text">📁 Resume - Malik Stevenson (Full Document)</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn minimize-btn" data-window="resume-window">_</button>
+            <button class="tb-btn maximize-btn" data-window="resume-window">□</button>
+            <button class="tb-btn close-btn" data-window="resume-window">×</button>
+          </div>
+        </div>
+        <div class="win95-menu-bar">
+          <span>File</span><span>Edit</span><span>View</span><span>Format</span><span>Help</span>
+        </div>
+        <div class="win95-body resume-body">
+          <!-- Resume Header -->
+          <div class="resume-header">
+            <h1>MALIK STEVENSON</h1>
+            <p class="resume-tagline">IT & Security Support Specialist | IAM & Endpoint Administration | FedRAMP Environments</p>
+            <div class="resume-contact-bar">
+              <span>📧 malikmstevenson@gmail.com</span>
+              <span>💾 <a href="https://github.com/malii96" target="_blank">github.com/malii96</a></span>
+              <span>🤝 <a href="https://linkedin.com/in/Malik-Stevenson" target="_blank">LinkedIn</a></span>
+            </div>
+          </div>
+
+          <hr class="resume-divider">
+
+          <!-- Summary -->
+          <div class="resume-section">
+            <h2 class="resume-section-title">PROFESSIONAL SUMMARY</h2>
+            <p>IT & Security Support Specialist with experience across FedRAMP-compliant and commercial environments. Specializing in Identity & Access Management, endpoint administration, and secure user lifecycle operations. Proven track record managing enterprise infrastructure, resolving 500+ service requests, and maintaining 99.9% system uptime. B.S. in Information Technology from Western Governors University.</p>
+          </div>
+
+          <hr class="resume-divider">
+
+          <!-- Experience -->
+          <div class="resume-section">
+            <h2 class="resume-section-title">WORK EXPERIENCE</h2>
+
+            <div class="resume-job">
+              <div class="resume-job-header">
+                <strong>IT & Security Support Specialist</strong>
+                <span class="resume-job-date">Feb 2025 – Present</span>
+              </div>
+              <div class="resume-job-org">Armis</div>
+              <ul>
+                <li>Provide Tier 1–2 IT support, troubleshooting hardware, software, and network issues to minimize end-user downtime</li>
+                <li>Manage and resolve service requests through ServiceDesk, prioritizing incidents by urgency and impact</li>
+                <li>Administer Microsoft 365, Okta, and Active Directory — provisioning accounts, managing access control, and ensuring security compliance</li>
+                <li>Support FedRAMP-compliant IT operations, ensuring adherence to federal security standards</li>
+                <li>Document recurring issues and solutions in a knowledge base, improving resolution efficiency</li>
+                <li>Collaborate with cybersecurity teams to enforce security policies, monitor systems, and mitigate threats</li>
+              </ul>
+            </div>
+
+            <div class="resume-job">
+              <div class="resume-job-header">
+                <strong>IT System Administrator</strong>
+                <span class="resume-job-date">Nov 2021 – Present</span>
+              </div>
+              <div class="resume-job-org">United States Army</div>
+              <ul>
+                <li>Delivered technical support and system administration across a large-scale, high-demand environment</li>
+                <li>Reconfigured and upgraded 100+ systems, reducing deployment time by 20%</li>
+                <li>Managed Microsoft 365 environments (Exchange, Teams, SharePoint), maintaining 99.9% uptime</li>
+                <li>Resolved 500+ service requests with a 90% satisfaction rate</li>
+                <li>Maintained Windows Server environments and Active Directory with secure access control</li>
+                <li>Created technical documentation and SOPs to drive operational consistency</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="resume-divider">
+
+          <!-- Education -->
+          <div class="resume-section">
+            <h2 class="resume-section-title">EDUCATION</h2>
+            <div class="resume-job">
+              <div class="resume-job-header">
+                <strong>B.S. Information Technology</strong>
+                <span class="resume-job-date">Completed</span>
+              </div>
+              <div class="resume-job-org">Western Governors University</div>
+              <p class="resume-coursework">Relevant Coursework: Operating Systems, Network Security, Cloud Computing</p>
+            </div>
+          </div>
+
+          <hr class="resume-divider">
+
+          <!-- Skills -->
+          <div class="resume-section">
+            <h2 class="resume-section-title">TECHNICAL SKILLS</h2>
+            <div class="resume-skills-table">
+              <div class="resume-skill-row">
+                <span class="resume-skill-label">IAM & Access:</span>
+                <span>Okta, Active Directory, User Lifecycle Management, Access Control</span>
+              </div>
+              <div class="resume-skill-row">
+                <span class="resume-skill-label">Endpoint & OS:</span>
+                <span>Jamf, Windows, Linux, SCCM, Windows Server</span>
+              </div>
+              <div class="resume-skill-row">
+                <span class="resume-skill-label">Cloud & Productivity:</span>
+                <span>Microsoft 365 (Exchange, Teams, SharePoint), Google Workspace, AWS</span>
+              </div>
+              <div class="resume-skill-row">
+                <span class="resume-skill-label">Security:</span>
+                <span>FedRAMP Compliance, Network Security, Security Policies, Risk Assessment</span>
+              </div>
+              <div class="resume-skill-row">
+                <span class="resume-skill-label">Tools & Ticketing:</span>
+                <span>ServiceDesk, Jira, Remedy, Bash, PowerShell</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="resume-divider">
+
+          <!-- Projects -->
+          <div class="resume-section">
+            <h2 class="resume-section-title">PROJECTS</h2>
+            <div class="resume-job">
+              <strong>Cloud Resume Challenge</strong>
+              <p>Built and deployed a resume website on AWS using S3, CloudFront, Route 53, Lambda, and DynamoDB with CI/CD pipeline.</p>
+            </div>
+            <div class="resume-job">
+              <strong>VetSITREP — Veteran Transition Platform</strong>
+              <p>Full-stack Next.js application with Supabase, Stripe payments, and AI-powered career transition tools for veterans.</p>
+            </div>
+            <div class="resume-job">
+              <strong>Defense Tax Partners AI Chatbot</strong>
+              <p>Automated client intake chatbot using n8n workflow engine, Claude API, Airtable CRM, and Typebot interface.</p>
+            </div>
+          </div>
+
+          <div class="resume-footer">
+            <marquee behavior="scroll" direction="left" scrollamount="2">
+              ═══ End of Resume ═══ Last Updated: 2026 ═══ References Available Upon Request ═══
+            </marquee>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== AWAY MESSAGE EASTER EGG ===== -->
+      <div class="away-message" id="away-message">
+        <div class="away-title">📝 Malik's Away Message:</div>
+        <div>"Currently deployed in production environments. Leave a message after the beep... or just check my resume. 💻"</div>
+        <span class="away-close" id="away-close">[close]</span>
+      </div>
+
+      <!-- ===== BUDDY LIST ===== -->
+      <div class="buddy-list" id="buddy-list">
+        <div class="win95-titlebar" data-window="buddy-list">
+          <span class="titlebar-text">👥 Buddy List</span>
+          <div class="titlebar-buttons">
+            <button class="tb-btn close-btn" data-window="buddy-list">×</button>
+          </div>
+        </div>
+        <div class="buddy-body">
+          <div class="buddy-search">
+            <input type="text" placeholder="Keyword: BuddyView" readonly>
+          </div>
+          <div class="buddy-category">
+            <div class="buddy-cat-header" onclick="this.parentElement.classList.toggle('collapsed')">📂 Online (Core Skills)</div>
+            <div class="buddy-items">
+              <div class="buddy-item online">🟢 OktaIAM</div>
+              <div class="buddy-item online">🟢 ActiveDir</div>
+              <div class="buddy-item online">🟢 M365Admin</div>
+              <div class="buddy-item online">🟢 JamfPro</div>
+              <div class="buddy-item online">🟢 FedRAMP_Sec</div>
+              <div class="buddy-item online">🟢 PowerShell</div>
+              <div class="buddy-item online">🟢 GoogleWksp</div>
+            </div>
+          </div>
+          <div class="buddy-category">
+            <div class="buddy-cat-header" onclick="this.parentElement.classList.toggle('collapsed')">📂 Away (Tools)</div>
+            <div class="buddy-items">
+              <div class="buddy-item away">🟡 ServiceDesk</div>
+              <div class="buddy-item away">🟡 Jira_Tickets</div>
+              <div class="buddy-item away">🟡 BashScript</div>
+              <div class="buddy-item away">🟡 LinuxAdmin</div>
+            </div>
+          </div>
+          <div class="buddy-category">
+            <div class="buddy-cat-header" onclick="this.parentElement.classList.toggle('collapsed')">📂 Offline (Leveling Up)</div>
+            <div class="buddy-items">
+              <div class="buddy-item offline">⚪ AWS_Cloud</div>
+              <div class="buddy-item offline">⚪ Terraform</div>
+              <div class="buddy-item offline">⚪ Kubernetes</div>
+            </div>
+          </div>
+          <div class="buddy-actions">
+            <button class="buddy-action-btn">IM</button>
+            <button class="buddy-action-btn">Setup</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end desktop-area -->
+
+    <!-- YOU'VE GOT MAIL NOTIFICATION -->
+    <div class="ygm-notification hidden" id="ygm-notification">
+      <div class="ygm-popup">
+        <span class="ygm-popup-icon">📬</span>
+        <span>You've Got Mail!</span>
+        <button class="ygm-close" id="ygm-close">OK</button>
+      </div>
+    </div>
+
+  </div><!-- end aol-desktop -->
+
+  <audio id="dialup-sound" preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/3/33/Dial_up_modem_noises.ogg" type="audio/ogg">
+  </audio>
+  <audio id="ygm-sound" preload="auto">
+    <source src="https://www.myinstants.com/media/sounds/youve-got-mail-sound-effect.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

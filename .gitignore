@@ -1,0 +1,13 @@
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+terraform/lambda_function.zip
+
+# Lambda package
+lambda/function.zip
+lambda/output.json
+
+# OS files
+.DS_Store
